@@ -1,28 +1,76 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <v-app>
+    <v-main>
+      <v-container>
+        <Header :menu="menu"/>
+        <MyWork :source="mywork" />
+        <Event :source="event"/>
+        <Skill />
+        <br/><br/>
+
+        <Contract />
+        <br/><br/>
+        
+        <div class="mt-5 pa-3 text-center text-caption">©2020 by macro sin.</div>
+      </v-container>
+    </v-main>
+  </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Header from '@/components/Header';
+import MyWork from '@/components/MyWork';
+import Event from '@/components/Event';
+import Skill from '@/components/Skill';
+import Contract from '@/components/Contract';
 
 export default {
-  name: 'app',
-  components: {
-    HelloWorld
-  }
-}
-</script>
+  name: 'App',
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+  components: {
+    Header,
+    MyWork,
+    Event,
+    Skill,
+    Contract,
+  },
+
+  data: () => ({
+    menu: ['mywork','event','skill','contract'],
+    mywork: {
+      path: 'static/web_mobile_print/',
+      imgs: [
+        'skybooks_screen-1.jpg',
+        'mylife_screen.jpg',
+        'cncbi_screen-1.jpg',
+        'leaflet_screen-1.jpg',
+        'leaflet_screen-2.jpg',
+        'jego_screen-1.jpg',
+        'booklet-1.jpg',
+        'booklet-2.jpg',
+      ],
+    },
+    event: {
+      path: 'static/event/',
+      imgs: [
+        'bookfair2016-0.jpg',
+        'bookfair2016-1.jpg',
+        'bookfair2016-2.jpg',
+        'bookfair2016-3.jpg',
+        'bookfair2016-4.jpg',
+        'bookfair2016-5.jpg',
+        'bookfair2016-6.jpg',
+        'bookfair2016-7.jpg',
+        'bookfair2016-8.jpg',
+        'bookfair2016-9.jpg',
+        'bookfair2015-0.jpg',
+        'bookfair2015-2.jpg',
+        'bookfair2015-3.jpg',
+      ]
+    },
+
+  }),
+
+  
+};
+</script>
