@@ -34,7 +34,7 @@
             </div>
             <div class="text-center pa-3 mx-5">
                 <v-avatar size="120" tile>
-                    <v-img src="static/icons/javascript_badge.png"></v-img>
+                    <v-img src="static/icons/js.png"></v-img>
                 </v-avatar>
             </div>
             <div class="text-center pa-3 mx-5">

@@ -1,20 +1,31 @@
 <template>
     <section id="contract" class="my-5">
         <div class="text-center py-5">
-            <div class="text-h4">Contract</div>
+            <div class="text-h4">Contract us</div>
         </div>
 
         <v-form
             class="mt-5 contract-form"
-            action="javascript:void(0)"
             ref="form"
             v-model="valid"
             :lazy-validation="lazy"
         >
+            <v-progress-linear indeterminate :active="loading" color="cyan" class="mb-5"></v-progress-linear>
+
+            <div v-if="getStatus.errorMessage"
+                class="pa-3 text-h6 font-weight-light error--text">
+                {{ getStatus.errorMessage }}
+            </div>
+            <div
+                v-if="getStatus.successMessage"
+                class="pa-3 text-h6 font-weight-light success--text">
+                {{ getStatus.successMessage }}
+            </div>
+
             <v-text-field
                 outlined
                 label="name"
-                ref="name"
+                ref="client_name"
                 v-model="name"
                 :rules=[rules.required]
                 required
@@ -25,7 +36,7 @@
             <v-text-field
                 outlined
                 label="email"
-                ref="email"
+                ref="client_email"
                 v-model="email"
                 :rules="emailRules"
                 required
@@ -35,6 +46,7 @@
             <v-textarea
                 outlined
                 label="Message"
+                ref="client_message"
                 v-model="message"
                 :rules=[rules.required]
                 required
@@ -44,7 +56,7 @@
 
             <v-btn 
                 outlined block class=""
-                :disabled="false"
+                :disabled="loading"
                 @click="validate"
             >
                 submit
@@ -54,6 +66,8 @@
 </template>
 
 <script>
+import { mapGetters, mapActions } from 'vuex';
+
 export default {
     name: "Contract",
 
@@ -66,27 +80,34 @@ export default {
             v => !!v || '必須輸入 required',
             v => /.+@.+\..+/.test(v) || 'E-mail must be valid',
         ],
-        name: null,
-        email: null,
-        message: null,
-        isSuccess: false,
-        errorText: "",
+        name: 'macsin',
+        email: "macsin00@gmail.com",
+        message: "null",
     }),
 
+    computed: {
+      ...mapGetters(['getClient','getStatus']),
+    },
+
     methods: {
+        ...mapActions(['asyncFetchContract']),
+
         validate() {
             if (this.$refs.form.validate()) {
-                this.errorText = null;
                 this.fetch();
             }
         },
 
-        async fetch() {
+        fetch() {
             this.loading = true;
-            this.errorText = null;
-            const client = { name: this.name, email: this.email, message: this.message }
-            // eslint-disable-next-line no-console
-            console.log( client );
+            const clientForm = { name: this.name, email: this.email, message: this.message }
+            this.asyncFetchContract(clientForm)
+                .then((result)=> {
+                    if (result) {
+                        this.$refs.form.reset();
+                    }
+                    this.loading = false;
+                })
         },
     },
 
