@@ -5,6 +5,10 @@ import { store } from '@/store'
 
 Vue.config.productionTip = false
 
+Vue.filter('toUpperCase', function (value) {
+  return value.toUpperCase();
+})
+
 new Vue({
   store,
   vuetify,

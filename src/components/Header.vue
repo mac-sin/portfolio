@@ -17,7 +17,7 @@
     >
         <div class="ma-5 pa-5 bg-title d-flex justify-center align-stretch">
             <div class="px-4" v-for="(m,i) in menu" :key="i">
-                <a :href="'#'+m">{{ m }}</a>
+                <a :href="'#'+m">{{ m | toUpperCase }}</a>
             </div>
         </div>
     </v-img>

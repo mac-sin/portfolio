@@ -1,11 +1,12 @@
 <template>
-    <section id="contract" class="my-5">
-        <div class="text-center py-5">
+    <section id="contract" class="ma-5">
+        <div class="text-center">
             <div class="text-h4">Contract us</div>
         </div>
 
         <v-form
             class="mt-5 contract-form"
+            autocomplete="off"
             ref="form"
             v-model="valid"
             :lazy-validation="lazy"
@@ -26,18 +27,17 @@
                 outlined
                 label="name"
                 ref="client_name"
-                v-model="name"
+                v-model.trim="name"
                 :rules=[rules.required]
                 required
                 :disabled="loading"
-                @keyup.enter="validate"
             ></v-text-field>
 
             <v-text-field
                 outlined
                 label="email"
                 ref="client_email"
-                v-model="email"
+                v-model.trim="email"
                 :rules="emailRules"
                 required
                 :disabled="loading"
@@ -47,11 +47,10 @@
                 outlined
                 label="Message"
                 ref="client_message"
-                v-model="message"
+                v-model.trim="message"
                 :rules=[rules.required]
                 required
                 :disabled="loading"
-                @keyup.enter="validate"
             ></v-textarea>
 
             <v-btn 
@@ -73,16 +72,16 @@ export default {
 
     data: () => ({
         loading: false,
-        valid: true,
+        valid: false,
         lazy: false,
         rules: { required: value => !!value || '必須輸入 required', },
         emailRules: [
             v => !!v || '必須輸入 required',
             v => /.+@.+\..+/.test(v) || 'E-mail must be valid',
         ],
-        name: 'macsin',
-        email: "macsin00@gmail.com",
-        message: "null",
+        name: null,
+        email: null,
+        message: null,
     }),
 
     computed: {
@@ -116,7 +115,7 @@ export default {
 
 <style scoped>
 .contract-form {
-    max-width: 500px;
+    max-width: 600px;
     margin: auto;
 }
 </style>

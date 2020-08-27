@@ -5,7 +5,7 @@
             <div class="text-h6 font-weight-light">Publishing | Graphic | Websit</div>
         </div>
 
-        <div class="d-flex justify-center">
+        <div class="d-flex flex-wrap justify-center">
             <div class="text-center pa-3 mx-5">
                 <v-avatar size="120" tile>
                     <v-img src="static/icons/ps-icon.png"></v-img>
@@ -26,7 +26,7 @@
             </div>
         </div>
 
-        <div class="d-flex justify-center">
+        <div class="d-flex flex-wrap justify-center">
             <div class="text-center pa-3 mx-5">
                 <v-avatar size="120" tile>
                     <v-img src="static/icons/html.png"></v-img>
