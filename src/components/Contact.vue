@@ -1,11 +1,11 @@
 <template>
-    <section id="contract" class="ma-5">
+    <section id="contact" class="ma-5">
         <div class="text-center">
-            <div class="text-h4">Contract us</div>
+            <div class="text-h4">Contact us</div>
         </div>
 
         <v-form
-            class="mt-5 contract-form"
+            class="mt-5 contact-form"
             autocomplete="off"
             ref="form"
             v-model="valid"
@@ -68,7 +68,7 @@
 import { mapGetters, mapActions } from 'vuex';
 
 export default {
-    name: "Contract",
+    name: "contact",
 
     data: () => ({
         loading: false,
@@ -89,7 +89,7 @@ export default {
     },
 
     methods: {
-        ...mapActions(['asyncFetchContract']),
+        ...mapActions(['asyncFetchcontact']),
 
         validate() {
             if (this.$refs.form.validate()) {
@@ -100,7 +100,7 @@ export default {
         fetch() {
             this.loading = true;
             const clientForm = { name: this.name, email: this.email, message: this.message }
-            this.asyncFetchContract(clientForm)
+            this.asyncFetchcontact(clientForm)
                 .then((result)=> {
                     if (result) {
                         this.$refs.form.reset();
@@ -114,7 +114,7 @@ export default {
 </script>
 
 <style scoped>
-.contract-form {
+.contact-form {
     max-width: 600px;
     margin: auto;
 }

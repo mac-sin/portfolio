@@ -8,7 +8,7 @@
         <Skill />
         <br/><br/>
 
-        <Contract />
+        <Contact />
         <br/><br/>
         
         <div class="mt-5 pa-3 text-center text-caption">©2020 by macro sin.</div>
@@ -22,7 +22,7 @@ import Header from '@/components/Header';
 import MyWork from '@/components/MyWork';
 import Event from '@/components/Event';
 import Skill from '@/components/Skill';
-import Contract from '@/components/Contract';
+import Contact from '@/components/Contact';
 
 export default {
   name: 'App',
@@ -32,11 +32,11 @@ export default {
     MyWork,
     Event,
     Skill,
-    Contract,
+    Contact,
   },
 
   data: () => ({
-    menu: ['mywork','event','skill','contract'],
+    menu: ['mywork','event','skill','contact'],
     mywork: {
       path: 'static/web_mobile_print/',
       imgs: [
