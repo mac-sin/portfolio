@@ -2,7 +2,7 @@
     <section id="skill" class="my-5">
         <div class="text-center py-5">
             <div class="text-h4">Skill</div>
-            <div class="text-h6 font-weight-light">Publishing | Graphic | Websit</div>
+            <div class="text-h6 font-weight-light">Publishing | Graphic | Website</div>
         </div>
 
         <div class="d-flex flex-wrap justify-center">

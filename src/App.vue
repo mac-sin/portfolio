@@ -11,7 +11,7 @@
         <Contact />
         <br/><br/>
         
-        <div class="mt-5 pa-3 text-center text-caption">©2020 by macro sin.</div>
+        <div class="mt-5 pa-3 text-center text-caption">©2020 by marco sin.</div>
       </v-container>
     </v-main>
   </v-app>

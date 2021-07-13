@@ -5,7 +5,7 @@
             <img src="static/icons/my_avator_black.png" alt="avator"/>
         </v-avatar>
         <div class="pa-3">
-            <div class="py-4 text-h4">Macro Sin</div>
+            <div class="py-4 text-h4">Marco Sin</div>
         </div>
     </div>
 
